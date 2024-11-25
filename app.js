@@ -103,7 +103,7 @@ function saveData() {
         };
     }
 
-    // Calcul de la surface corporelle (SC)
+        // Calcul de la surface corporelle (SC)
     const weight = parseFloat(document.getElementById('patient-weight').value);
     const height = parseFloat(document.getElementById('patient-height').value);
     const bodySurfaceArea = calculateBodySurfaceArea(weight, height);
@@ -165,11 +165,6 @@ function newSession() {
     alert("La session a été réinitialisée. Commencez un nouvel examen.");
 }
 
-// Fonction pour calculer la surface corporelle (SC) en utilisant la formule de Mosteller
-function calculateBodySurfaceArea(weight, height) {
-    return Math.sqrt((weight * height) / 3600).toFixed(2); // Surface corporelle en m²
-}
-
 // Vérifier si des données existent déjà en session au chargement de la page
 window.onload = function() {
     const storedData = sessionStorage.getItem('valveData');
@@ -181,3 +176,4 @@ window.onload = function() {
         displayDiagnostic(values, bodySurfaceArea);
     }
 };
+   
