@@ -56,10 +56,10 @@ button:hover {
     border-radius: 5px;
 }
 
-#diagnostic-text {
+#diagnostic-text, #conduct-text, #echocardiography-report {
     font-weight: bold;
 }
 
-#valve-inputs {
+#measurements-inputs {
     margin-top: 20px;
 }
