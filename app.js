@@ -113,7 +113,8 @@ function displayDiagnostic(values) {
         if (values.mitralMeasure >= 30 && values.mitralGradient > 10 && values.lvEjection < 50) {
             diagnosis = "Insuffisance Mitrale sévère (régurgitation mitrale avec faible fraction d’éjection)";
         } else if (values.mitralMeasure < 30 && values.mitralGradient > 20) {
-            diagnosis = "Rétrécissement Mitral sévère (rétrécissement de la valve mitrale avec hypertension pulmonaire)";
+            diagnosis = "Rétrécissement Mitral sévère
+                            diagnosis = "Rétrécissement Mitral sévère (rétrécissement de la valve mitrale avec hypertension pulmonaire)";
         } else {
             diagnosis = "Régurgitation ou rétrécissement mitral modéré.";
         }
@@ -137,95 +138,7 @@ function displayDiagnostic(values) {
         }
     }
 
-    document.getElementById('diagnostic-text').innerText = diagnosis;
-}
-
-// Fonction pour réinitialiser les données et démarrer une nouvelle session
-function newSession() {
-    // Effacer les données de la session
-    sessionStorage.clear();
-
-    // Réinitialiser l'interface
-    document.getElementById('valve-selection').value = '';
-    document.getElementById('valve-inputs').innerHTML = '';
-    document.getElementById('diagnostic-text').innerText = 'Aucune donnée enregistrée';
-
-    alert("La session a été réinitialisée. Commencez un nouvel examen.");
-}
-
-// Vérifier si des données existent déjà en session au chargement de la page
-window.onload = function() {
-    const storedData = sessionStorage.getItem('valveData');
-    if (storedData) {
-        const values = JSON.parse(storedData);
-        displayDiagnostic(values);
-    }
-};
-
-// Fonction pour afficher le diagnostic basé sur les mesures saisies, incluant les cas spécifiques
-function displayDiagnostic(values) {
-    let diagnosis = "Aucune donnée enregistrée";
-
-    // Vérification des valeurs et calculs pour chaque valve
-
-    // Diagnostic pour la Valve Aortique (Rétrécissement Aortique)
-    if (values.valveMeasure && values.gradient && values.aorticRoot && values.aorticVelocity) {
-        // Cas de bas débit, bas gradient (Low Flow, Low Gradient)
-        if (values.gradient < 40 && values.aorticVelocity < 4.0) {
-            if (values.valveMeasure < 1) {
-                diagnosis = "Rétrécissement Aortique sévère avec bas débit et bas gradient (insuffisance fonctionnelle du ventricule gauche)";
-            } else {
-                diagnosis = "Rétrécissement Aortique sévère avec bas débit et bas gradient, nécessitant une évaluation approfondie";
-            }
-        }
-        // Cas de haut débit (High Flow, High Gradient) : par exemple, anémie, hyperthyroïdie
-        else if (values.gradient >= 40 && values.valveMeasure >= 30) {
-            diagnosis = "Rétrécissement Aortique sévère avec haut débit (possible compensation par un flux sanguin élevé)";
-        } 
-        // Cas normal de rétrécissement
-        else if (values.valveMeasure >= 30 && values.gradient >= 40) {
-            diagnosis = "Rétrécissement Aortique sévère (rétrécissement important de la valve aortique avec hypertension systémique)";
-        } else {
-            diagnosis = "Rétrécissement Aortique modéré, nécessitant un suivi";
-        }
-    }
-
-    // Diagnostic pour la Valve Mitrale (Insuffisance Mitrale)
-    else if (values.mitralMeasure && values.mitralGradient && values.lvEjection && values.paps) {
-        // Insuffisance Mitrale sévère avec dysfonction du ventricule gauche (FEVG faible)
-        if (values.mitralMeasure >= 30 && values.mitralGradient > 10 && values.lvEjection < 50) {
-            diagnosis = "Insuffisance Mitrale sévère (régurgitation mitrale avec faible fraction d’éjection)";
-        }
-        // Insuffisance Mitrale secondaire (dilatation ventriculaire)
-        else if (values.mitralMeasure < 30 && values.lvEjection >= 50 && values.paps > 50) {
-            diagnosis = "Insuffisance Mitrale secondaire (due à une dilatation du ventricule gauche avec hypertension pulmonaire)";
-        } 
-        // Cas modéré d'insuffisance mitrale
-        else {
-            diagnosis = "Régurgitation mitrale modérée, nécessitant un suivi et un traitement médical";
-        }
-    }
-
-    // Diagnostic pour la Valve Tricuspide (Insuffisance Tricuspide)
-    else if (values.tricuspidMeasure && values.tricuspidGradient) {
-        // Cas d'insuffisance tricuspide sévère avec hypertension pulmonaire
-        if (values.tricuspidMeasure < 20 && values.tricuspidGradient > 20) {
-            diagnosis = "Insuffisance Tricuspide sévère (régurgitation de la valve tricuspide avec hypertension pulmonaire)";
-        } else {
-            diagnosis = "Régurgitation tricuspide modérée";
-        }
-    }
-
-    // Diagnostic pour la Valve Pulmonaire (Rétrécissement Pulmonaire)
-    else if (values.pulmonaryMeasure && values.pulmonaryGradient && values.pulmonaryVelocity) {
-        // Cas de rétrécissement pulmonaire sévère
-        if (values.pulmonaryMeasure < 20 && values.pulmonaryGradient >= 40) {
-            diagnosis = "Rétrécissement Pulmonaire sévère (rétrécissement de la valve pulmonaire avec hypertension pulmonaire)";
-        } else {
-            diagnosis = "Régurgitation pulmonaire modérée";
-        }
-    }
-
+    // Affichage du diagnostic final
     document.getElementById('diagnostic-text').innerText = diagnosis;
 }
 
