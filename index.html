@@ -10,17 +10,19 @@
     <div class="container">
         <h1>Examen Échocardiographique - Valvulopathies</h1>
 
-        <div id="patient-info">
-            <label for="valve-measure">Mesure de la valve (en mm²) :</label>
-            <input type="number" id="valve-measure" placeholder="Entrer la mesure...">
+        <div id="choose-valve">
+            <label for="valve-selection">Sélectionnez la valve :</label>
+            <select id="valve-selection" onchange="showValveInputs()">
+                <option value="">Choisir une valve...</option>
+                <option value="aortic">Valve Aortique</option>
+                <option value="mitral">Valve Mitrale</option>
+                <option value="tricuspid">Valve Tricuspide</option>
+                <option value="pulmonary">Valve Pulmonaire</option>
+            </select>
+        </div>
 
-            <label for="gradient">Gradient (en mmHg) :</label>
-            <input type="number" id="gradient" placeholder="Entrer le gradient...">
-
-            <label for="paps">Pression artérielle pulmonaire systolique (en mmHg) :</label>
-            <input type="number" id="paps" placeholder="Entrer la pression pulmonaire...">
-
-            <button onclick="saveData()">Sauvegarder</button>
+        <div id="valve-inputs">
+            <!-- Inputs dynamiques selon la valve sélectionnée -->
         </div>
 
         <div id="diagnostic">
