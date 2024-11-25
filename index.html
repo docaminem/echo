@@ -10,27 +10,55 @@
     <div class="container">
         <h1>Examen Échocardiographique - Valvulopathies</h1>
 
-        <div id="choose-valve">
-            <label for="valve-selection">Sélectionnez la valve :</label>
-            <select id="valve-selection" onchange="showValveInputs()">
-                <option value="">Choisir une valve...</option>
-                <option value="aortic">Valve Aortique</option>
-                <option value="mitral">Valve Mitrale</option>
-                <option value="tricuspid">Valve Tricuspide</option>
-                <option value="pulmonary">Valve Pulmonaire</option>
+        <!-- Informations sur le patient -->
+        <div id="patient-info">
+            <label for="patient-name">Nom du patient :</label>
+            <input type="text" id="patient-name" placeholder="Entrez le nom du patient">
+            
+            <label for="patient-age">Âge du patient :</label>
+            <input type="number" id="patient-age" placeholder="Entrez l'âge du patient">
+
+            <label for="patient-weight">Poids du patient (en kg) :</label>
+            <input type="number" id="patient-weight" placeholder="Entrez le poids du patient">
+
+            <label for="patient-height">Taille du patient (en cm) :</label>
+            <input type="number" id="patient-height" placeholder="Entrez la taille du patient">
+
+            <label for="body-surface-area">Surface corporelle (m²) :</label>
+            <input type="text" id="body-surface-area" placeholder="Calculée automatiquement" readonly>
+        </div>
+
+        <!-- Choix de la valvulopathie -->
+        <div id="choose-valvulopathy">
+            <label for="valvulopathy-selection">Sélectionnez la valvulopathie :</label>
+            <select id="valvulopathy-selection" onchange="showMeasures()">
+                <option value="">Choisir une valvulopathie...</option>
+                <option value="aortic-insufficiency">Insuffisance Aortique</option>
+                <option value="aortic-stenosis">Rétrécissement Aortique</option>
+                <option value="mitral-insufficiency">Insuffisance Mitrale</option>
+                <option value="mitral-stenosis">Rétrécissement Mitral</option>
+                <option value="tricuspid-insufficiency">Insuffisance Tricuspide</option>
+                <option value="pulmonary-stenosis">Rétrécissement Pulmonaire</option>
             </select>
         </div>
 
-        <div id="valve-inputs">
-            <!-- Inputs dynamiques selon la valve sélectionnée -->
+        <!-- Champs dynamiques pour les mesures -->
+        <div id="measurements-inputs">
+            <!-- Champs dynamiques ici -->
         </div>
 
+        <!-- Affichage du diagnostic -->
         <div id="diagnostic">
             <h3>Diagnostic basé sur les mesures :</h3>
             <p id="diagnostic-text">Aucune donnée enregistrée</p>
+            <h4>Conduite à tenir :</h4>
+            <p id="conduct-text">Aucune conduite à tenir définie</p>
+            <h4>Compte rendu échographique :</h4>
+            <p id="echocardiography-report">Aucun compte rendu disponible</p>
         </div>
 
-        <button onclick="newSession()">Nouvelle Session</button>
+        <!-- Bouton pour démarrer la nouvelle session -->
+        <button onclick="newSession()">بِسْمِ اللَّهِ</button>
     </div>
 
     <script src="app.js"></script>
