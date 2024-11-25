@@ -97,7 +97,7 @@ function saveData() {
         values = {
             valveMeasure: document.getElementById('aortic-stenosis-measure').value,
             gradient: document.getElementById('aortic-stenosis-gradient').value,
-                        velocity: document.getElementById('aortic-stenosis-velocity').value,
+            velocity: document.getElementById('aortic-stenosis-velocity').value,
             aorticRoot: document.getElementById('aortic-stenosis-root').value
         };
     } else if (valvulopathy === 'mitral-insufficiency') {
@@ -115,7 +115,7 @@ function saveData() {
             paps: document.getElementById('paps-stenosis').value
         };
     } else if (valvulopathy === 'tricuspid-insufficiency') {
-        values = {
+                values = {
             valveMeasure: document.getElementById('tricuspid-measure').value,
             gradient: document.getElementById('tricuspid-gradient').value
         };
@@ -243,4 +243,3 @@ window.onload = function() {
         displayDiagnostic(values, bodySurfaceArea);
     }
 };
-           
