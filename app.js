@@ -97,7 +97,7 @@ function saveData() {
         values = {
             valveMeasure: document.getElementById('aortic-stenosis-measure').value,
             gradient: document.getElementById('aortic-stenosis-gradient').value,
-            velocity: document.getElementById('aortic-stenosis-velocity').value,
+                        velocity: document.getElementById('aortic-stenosis-velocity').value,
             aorticRoot: document.getElementById('aortic-stenosis-root').value
         };
     } else if (valvulopathy === 'mitral-insufficiency') {
@@ -243,3 +243,4 @@ window.onload = function() {
         displayDiagnostic(values, bodySurfaceArea);
     }
 };
+           
