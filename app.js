@@ -113,8 +113,7 @@ function displayDiagnostic(values) {
         if (values.mitralMeasure >= 30 && values.mitralGradient > 10 && values.lvEjection < 50) {
             diagnosis = "Insuffisance Mitrale sévère (régurgitation mitrale avec faible fraction d’éjection)";
         } else if (values.mitralMeasure < 30 && values.mitralGradient > 20) {
-            diagnosis = "Rétrécissement Mitral sévère
-                            diagnosis = "Rétrécissement Mitral sévère (rétrécissement de la valve mitrale avec hypertension pulmonaire)";
+            diagnosis = "Rétrécissement Mitral sévère (rétrécissement de la valve mitrale avec hypertension pulmonaire)";
         } else {
             diagnosis = "Régurgitation ou rétrécissement mitral modéré.";
         }
