@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Échocardiographie Transthoracique</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Examen Échocardiographique - Valvulopathies</h1>
+
+        <div id="patient-info">
+            <label for="valve-measure">Mesure de la valve (en mm²) :</label>
+            <input type="number" id="valve-measure" placeholder="Entrer la mesure...">
+
+            <label for="gradient">Gradient (en mmHg) :</label>
+            <input type="number" id="gradient" placeholder="Entrer le gradient...">
+
+            <label for="paps">Pression artérielle pulmonaire systolique (en mmHg) :</label>
+            <input type="number" id="paps" placeholder="Entrer la pression pulmonaire...">
+
+            <button onclick="saveData()">Sauvegarder</button>
+        </div>
+
+        <div id="diagnostic">
+            <h3>Diagnostic basé sur les mesures :</h3>
+            <p id="diagnostic-text">Aucune donnée enregistrée</p>
+        </div>
+
+        <button onclick="newSession()">Nouvelle Session</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
